@@ -22,10 +22,12 @@ public class DadJokeService {
     }
 
     public void update(int id, String newJokeText) {
+        DadJoke currentJoke = repository.findById(id).orElseThrow();
 
+        currentJoke.setJokeText(newJokeText);
     }
 
     public void delete(int id) {
-
+        repository.deleteById(id);
     }
 }
